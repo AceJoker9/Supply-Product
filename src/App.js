@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import data from "./data/data.json";
 import SortProducts from './SortProducts';
 import CategorySelect from "./CategorySelect";
 import ProductCard from "./ProductComponent";
+import "./SupplyPix/fragrance-1.jpg";
+import "./SupplyPix/images (1).jpg";
+import "./SupplyPix/laptop-1.jpg";
+import "./SupplyPix/skin-care-1.jpg";
+import "./SupplyPix/style-1.jpg";
 
 function App() {
   const [allProducts, setAllProducts] = useState(data);
@@ -22,9 +27,26 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    const slideshowInterval = setInterval(() => {
+      // Rotate the slideshow logic here
+    }, 3000); // Adjust the interval time (in milliseconds) as needed
+
+    return () => {
+      clearInterval(slideshowInterval);
+    };
+  }, []);
+
   return (
     <div>
       <header>
+        <div className="slideshow">
+          <img src="./SupplyPix/fragrance-1.jpg" alt=" 1" />
+          <img src="./SupplyPix/images (1).jpg" alt=" 2" />
+          <img src="laptop-1.jpg" alt=" 3" />
+          <img src="/skin-care-1.jpg" alt=" 3" />
+          <img src="/style-1.jpg" alt=" 3" />
+        </div>
         <h1>One Stop Shop</h1>
       </header>
       <main>
